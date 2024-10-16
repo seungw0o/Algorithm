@@ -1,19 +1,45 @@
 function solution(s) {
-    let count = 0;
-
-    for (let i of s) {
-        if (i === '(') {
-            count += 1; 
-        } else if (i === ')') {
-            count -= 1; 
+    const stack = [];
+    for(let i of s){
+        if(i === "("){
+            stack.push(i);
         }
+        else if(i === ")"){
+            if (stack.length === 0) {
+                return false; 
+            }
+            stack.pop();
+        }
+        
+    }
+    if(stack.length > 0){
+        return false;
+    }
+    return stack.length === 0 ? true : false;
+    
+    
+    
+    
+//     let count = 0;
+//     let answer = false;
+//     for (let i of s) {
+//         if (i === '(') {
+//             count += 1; 
+//         } else if (i === ')') {
+//             count -= 1; 
+//         }
 
         
-        if (count < 0) {
-            return false;
-        }
-    }
+//         if (count < 0) {
+//             return answer;
+//         }
+//     }
 
-
-    return count === 0;
+//     if(count === 0){
+//         answer = true;
+        
+//     }
+//     return answer;
+    
+    
 }
