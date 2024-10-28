@@ -1,8 +1,10 @@
-# 입력
 N = int(input())
-A = set(map(int, input().split()))	
+A = set(map(int, input().split()))
 M = int(input())
 arr = list(map(int, input().split()))
 
-for num in arr:				
-    print(1) if num in A else print(0)	
+for num in arr:
+    if num in A:
+        print(1)
+    else:
+        print(0)
