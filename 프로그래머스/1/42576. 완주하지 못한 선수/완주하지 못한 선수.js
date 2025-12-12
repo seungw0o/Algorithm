@@ -1,24 +1,13 @@
 function solution(participant, completion) {
-    var answer = '';
-    let hash = new Map();
-
-    
-    for (let person of participant) {
-        hash.set(person, (hash.get(person) || 0) + 1);
+    let hash = new Map()
+    for(let name of participant){
+        hash.set(name, (hash.get(name) || 0)+1)
     }
-
-    
-    for (let person of completion) {
-        hash.set(person, hash.get(person) - 1);
-        if (hash.get(person) === 0) {
-            hash.delete(person);
-        }
+    for(let name of completion){
+        hash.set(name, hash.get(name) - 1)
     }
-
     
-    for (let key of hash.keys()) {
-        answer = key; 
+    for(let [name, count] of hash){
+        if(count > 0) return name
     }
-
-    return answer;
 }
